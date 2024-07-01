@@ -117,73 +117,83 @@ class TopsisRepository
     // Ideal
     public function getIdealPositif()
     {
-        $data = DB::table('ideal_positif as ip')
+        $data = DB::table('idealpositif as ip')
             ->join('kriteria as k', 'k.id', 'ip.kriteria_id')
-            ->join('alternatif as a', 'a.id', 'ip.alternatif_id')
-            ->join('objek as o', 'o.id', 'a.objek_id')
-            ->select('ip.*', 'k.nama as nama_kriteria', 'o.nama as nama_objek')
+            ->select('ip.*', 'k.nama as nama_kriteria')
             ->orderBy('ip.id', 'asc')->get();
 
         return $data;
     }
-    public function getIdealPositifKriteriaAlternatif($kriteria_id, $alternatif_id)
+
+    public function getIdealPositifKriteria($kriteria_id)
     {
-        $data = DB::table('ideal_positif')->where('kriteria_id', $kriteria_id)->where('alternatif_id', $alternatif_id)->first();
+        $data = DB::table('idealpositif')
+            ->where('kriteria_id', $kriteria_id)
+            ->first();
+
         return $data;
     }
+
     public function addIdealPositif($data)
     {
-        DB::table('ideal_positif')->insert([
-            'nilai' => $data['nilai'],
-            'alternatif_id' => $data['alternatif_id'],
+        DB::table('idealpositif')->insert([
             'kriteria_id' => $data['kriteria_id'],
+            'nilai' => $data['nilai'],
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
     }
+
     public function updateIdealPositif($data)
     {
-        DB::table('ideal_positif')->where('kriteria_id', $data['kriteria_id'])->where('alternatif_id', $data['alternatif_id'])->update([
-            'nilai' => $data['nilai'],
-            'updated_at' => Carbon::now(),
-        ]);
-    }
-    public function getIdealNegatif()
-    {
-        $data = DB::table('ideal_negatif as in')
-            ->join('kriteria as k', 'k.id', 'in.kriteria_id')
-            ->join('alternatif as a', 'a.id', 'in.alternatif_id')
-            ->join('objek as o', 'o.id', 'a.objek_id')
-            ->select('in.*', 'k.nama as nama_kriteria', 'o.nama as nama_objek')
-            ->orderBy('in.id', 'asc')->get();
+        DB::table('idealpositif')
+            ->where('kriteria_id', $data['kriteria_id'])
+            ->update([
+                'nilai' => $data['nilai'],
+                'updated_at' => Carbon::now(),
+            ]);
 
-        return $data;
-    }
-    public function getIdealNegatifKriteriaAlternatif($kriteria_id, $alternatif_id)
-    {
-        $data = DB::table('ideal_negatif')->where('kriteria_id', $kriteria_id)->where('alternatif_id', $alternatif_id)->first();
-        return $data;
-    }
-    public function addIdealNegatif($data)
-    {
-        DB::table('ideal_negatif')->insert([
-            'nilai' => $data['nilai'],
-            'alternatif_id' => $data['alternatif_id'],
-            'kriteria_id' => $data['kriteria_id'],
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
-    }
-    public function updateIdealNegatif($data)
-    {
-        DB::table('ideal_negatif')->where('kriteria_id', $data['kriteria_id'])->where('alternatif_id', $data['alternatif_id'])->update([
-            'nilai' => $data['nilai'],
-            'updated_at' => Carbon::now(),
-        ]);
-    }
+
+         } public function getIdealNegatif()
+            {
+                $data = DB::table('idealnegatif as ip')
+                    ->join('kriteria as k', 'k.id', 'ip.kriteria_id')
+                    ->select('ip.*', 'k.nama as nama_kriteria')
+                    ->orderBy('ip.id', 'asc')->get();
+
+                return $data;
+            }
+
+            public function getIdealNegatifKriteria($kriteria_id)
+            {
+                $data = DB::table('idealnegatif')
+                    ->where('kriteria_id', $kriteria_id)
+                    ->first();
+
+                return $data;
+            }
+
+            public function addIdealNegatif($data)
+            {
+                DB::table('idealnegatif')->insert([
+                    'kriteria_id' => $data['kriteria_id'],
+                    'nilai' => $data['nilai'],
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ]);
+            }
+
+            public function updateIdealNegatif($data)
+            {
+                DB::table('idealnegatif')
+                    ->where('kriteria_id', $data['kriteria_id'])
+                    ->update([
+                        'nilai' => $data['nilai'],
+                        'updated_at' => Carbon::now(),
+                    ]);
 
     // Solusi Ideal
-    public function getSolusiIdealPositif()
+  }public function getSolusiIdealPositif()
     {
         $data = DB::table('solusi_ideal_positif as sip')
             ->join('alternatif as a', 'a.id', 'sip.alternatif_id')
@@ -279,3 +289,5 @@ class TopsisRepository
         ]);
     }
 }
+
+

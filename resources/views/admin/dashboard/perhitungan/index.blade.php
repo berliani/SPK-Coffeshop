@@ -161,67 +161,57 @@
                 </div>
             </div>
 
-            {{-- Tabel Ideal Positif (A+) --}}
-            <div class="relative flex flex-col min-w-0 mb-5 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
-                <div class="flex flex-row items-center justify-between p-6 pb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                    <h6> Solusi Ideal Positif <span class="text-greenPrimary">(A<sup>+</sup>)</span></h6>
-                </div>
-                <div id='recipients' class="p-8 rounded shadow bg-white">
-                    <table id="tabel_data_ideal_positif" class="stripe hover" style="width:100%; padding-bottom: 1em;">
-                        <thead>
-                            <tr>
-                                <th>Nama</th>
-                                @foreach ($idealPositif->unique('kriteria_id') as $item)
-                                    <th>{{ $item->nama_kriteria }}</th>
-                                @endforeach
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($idealPositif->unique('alternatif_id') as $item)
-                                <tr>
-                                    <td>{{ $item->nama_objek }}</td>
-                                    @foreach ($idealPositif->where('alternatif_id', $item->alternatif_id) as $value)
-                                        <td>
-                                            {{ number_format($value->nilai, 6) }}
-                                        </td>
-                                    @endforeach
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+           {{-- Tabel Ideal Positif (A+) --}}
+<div class="relative flex flex-col min-w-0 mb-5 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
+    <div class="flex flex-row items-center justify-between p-6 pb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+        <h6> Solusi Ideal Positif <span class="text-greenPrimary">(A<sup>+</sup>)</span></h6>
+    </div>
+    <div id='recipients' class="p-8 rounded shadow bg-white">
+        <table id="tabel_data_ideal_positif" class="stripe hover" style="width:100%; padding-bottom: 1em;">
+            <thead>
+                <tr>
+                    @foreach ($kriteria as $item)
+                        <th>{{ $item->nama }}</th>
+                    @endforeach
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    @foreach ($idealPositif->unique('kriteria_id') as $item)
+                        <td>{{ $item->nilai }}</td>
+                    @endforeach
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 
             {{-- Tabel Solusi Ideal Negatif --}}
             <div class="relative flex flex-col min-w-0 mb-5 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                 <div class="flex flex-row items-center justify-between p-6 pb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                    <h6> Solusi Ideal Negatif <span class="text-greenPrimary">(A<sup>-</sup>)</span></h6>
+                    <h6> Solusi Ideal Positif <span class="text-greenPrimary">(A<sup>-</sup>)</span></h6>
                 </div>
                 <div id='recipients' class="p-8 rounded shadow bg-white">
                     <table id="tabel_data_ideal_negatif" class="stripe hover" style="width:100%; padding-bottom: 1em;">
                         <thead>
                             <tr>
-                                <th>Nama</th>
-                                @foreach ($idealNegatif->unique('kriteria_id') as $item)
-                                    <th>{{ $item->nama_kriteria }}</th>
+                                @foreach ($kriteria as $item)
+                                    <th>{{ $item->nama }}</th>
                                 @endforeach
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($idealNegatif->unique('alternatif_id') as $item)
-                                <tr>
-                                    <td>{{ $item->nama_objek }}</td>
-                                    @foreach ($idealNegatif->where('alternatif_id', $item->alternatif_id) as $value)
-                                        <td>
-                                            {{ number_format($value->nilai, 6) }}
-                                        </td>
-                                    @endforeach
-                                </tr>
-                            @endforeach
+                            <tr>
+                                @foreach ($idealNegatif->unique('kriteria_id') as $item)
+                                    <td>{{ $item->nilai }}</td>
+                                @endforeach
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+
 
             {{-- Tabel Separator Measure Positif --}}
             <div class="relative flex flex-col min-w-0 mb-5 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">

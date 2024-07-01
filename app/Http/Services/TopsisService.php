@@ -19,21 +19,21 @@ class TopsisService
         $data = $this->topsisRepository->getMatriksKeputusan();
         return $data;
     }
+
     public function getMatriksKeputusanKriteria($kriteria_id)
     {
         $data = $this->topsisRepository->getMatriksKeputusanKriteria($kriteria_id);
         return $data;
     }
+
     public function simpanMatriksKeputusan($data)
     {
         $validate = $this->topsisRepository->getMatriksKeputusanKriteria($data['kriteria_id']);
         if ($validate == null) {
             $result = $this->topsisRepository->addMatriksKeputusan($data);
-
-        } elseif ($validate != null) {
+        } else {
             $result = $this->topsisRepository->updateMatriksKeputusan($data);
         }
-
         return $result;
     }
 
@@ -43,13 +43,13 @@ class TopsisService
         $data = $this->topsisRepository->getMatriksNormalisasi();
         return $data;
     }
+
     public function simpanMatriksNormalisasi($data)
     {
         $validate = $this->topsisRepository->getMatriksNormalisasiKriteriaAlternatif($data['kriteria_id'], $data['alternatif_id']);
         if ($validate == null) {
             $this->topsisRepository->addMatriksNormalisasi($data);
-
-        } elseif ($validate != null) {
+        } else {
             $this->topsisRepository->updateMatriksNormalisasi($data);
         }
     }
@@ -60,35 +60,36 @@ class TopsisService
         $data = $this->topsisRepository->getMatriksY();
         return $data;
     }
+
     public function getMatriksYKriteria($kriteria_id)
     {
         $data = $this->topsisRepository->getMatriksYKriteria($kriteria_id);
         return $data;
     }
+
     public function simpanMatriksY($data)
     {
         $validate = $this->topsisRepository->getMatriksYKriteriaAlternatif($data['kriteria_id'], $data['alternatif_id']);
         if ($validate == null) {
             $this->topsisRepository->addMatriksY($data);
-
-        } elseif ($validate != null) {
+        } else {
             $this->topsisRepository->updateMatriksY($data);
         }
     }
 
-    // Ideal
+    // Ideal Positif
     public function getIdealPositif()
     {
         $data = $this->topsisRepository->getIdealPositif();
         return $data;
     }
+
     public function simpanIdealPositif($data)
     {
-        $validate = $this->topsisRepository->getIdealPositifKriteriaAlternatif($data['kriteria_id'], $data['alternatif_id']);
+        $validate = $this->topsisRepository->getIdealPositifKriteria($data['kriteria_id']);
         if ($validate == null) {
             $this->topsisRepository->addIdealPositif($data);
-
-        } elseif ($validate != null) {
+        } else {
             $this->topsisRepository->updateIdealPositif($data);
         }
     }
@@ -99,7 +100,7 @@ class TopsisService
     }
     public function simpanIdealNegatif($data)
     {
-        $validate = $this->topsisRepository->getIdealNegatifKriteriaAlternatif($data['kriteria_id'], $data['alternatif_id']);
+        $validate = $this->topsisRepository->getIdealNegatifKriteria($data['kriteria_id']);
         if ($validate == null) {
             $this->topsisRepository->addIdealNegatif($data);
 

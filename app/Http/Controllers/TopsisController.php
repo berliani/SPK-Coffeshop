@@ -142,38 +142,48 @@ class TopsisController extends Controller
         }
     }
 
-    public function hitungIdeal() //A+ dan A-
+    public function hitungIdeal() // A+ dan A-
     {
         $solusiIdeal = $this->topsisServices->getMatriksY();
         foreach ($solusiIdeal->unique('kriteria_id') as $item) {
             $solusiIdealKriteria = $solusiIdeal->where('kriteria_id', $item->kriteria_id);
 
-            $solusiIdealA = [];
-            foreach ($solusiIdealKriteria as $value) {
-                $solusiIdealA[] = $value->nilai;
-            }
-            $solusiIdealPositif = ['nilai' => max($solusiIdealA), 'kriteria_id' => $item->kriteria_id];
-            $solusiIdealNegatif = ['nilai' => min($solusiIdealA), 'kriteria_id' => $item->kriteria_id];
+            // Ambil jenis kriteria (benefit atau cost)
+            $kriteria = $this->kriteriaService->getDataById($item->kriteria_id);
 
+            // Tentukan solusi ideal positif dan negatif berdasarkan jenis kriteria
+            $solusiIdealPositif = null;
+            $solusiIdealNegatif = null;
+
+            if ($kriteria->jenis == 'benefit') {
+                // Untuk kriteria benefit
+                $solusiIdealPositif = $solusiIdealKriteria->max('nilai');
+                $solusiIdealNegatif = $solusiIdealKriteria->min('nilai');
+            } elseif ($kriteria->jenis == 'cost') {
+                // Untuk kriteria cost
+                $solusiIdealPositif = $solusiIdealKriteria->min('nilai');
+                $solusiIdealNegatif = $solusiIdealKriteria->max('nilai');
+            }
+
+            // Simpan nilai solusi ideal positif dan negatif
             foreach ($solusiIdealKriteria as $value) {
-                $idealPositif = pow($value->nilai - $solusiIdealPositif['nilai'], 2);
+                $idealPositif = pow($value->nilai - $solusiIdealPositif, 2);
                 $dataPositif = [
                     'nilai' => $idealPositif,
                     'kriteria_id' => $value->kriteria_id,
-
                 ];
                 $this->topsisServices->simpanIdealPositif($dataPositif);
 
-                $idealNegatif = pow($value->nilai - $solusiIdealNegatif['nilai'], 2);
+                $idealNegatif = pow($value->nilai - $solusiIdealNegatif, 2);
                 $dataNegatif = [
                     'nilai' => $idealNegatif,
                     'kriteria_id' => $value->kriteria_id,
-
                 ];
                 $this->topsisServices->simpanIdealNegatif($dataNegatif);
             }
         }
     }
+
 
     public function hitungSolusiIdeal()
     {
