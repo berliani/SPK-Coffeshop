@@ -80,7 +80,7 @@ class TopsisController extends Controller
         $this->hitungHasil();
     }
 
-    public function hitungMatriksKeputusan() //matriks keputusan (x)
+    public function hitungMatriksKeputusan() //matriks pembagi
     {
         $penilaian = $this->penilaianService->getAll();
         foreach ($penilaian->unique('kriteria_id') as $item) {
@@ -142,7 +142,7 @@ class TopsisController extends Controller
         }
     }
 
-    public function hitungIdeal()
+    public function hitungIdeal() //A+ dan A-
     {
         $solusiIdeal = $this->topsisServices->getMatriksY();
         foreach ($solusiIdeal->unique('kriteria_id') as $item) {
@@ -160,7 +160,7 @@ class TopsisController extends Controller
                 $dataPositif = [
                     'nilai' => $idealPositif,
                     'kriteria_id' => $value->kriteria_id,
-                    'alternatif_id' => $value->alternatif_id,
+
                 ];
                 $this->topsisServices->simpanIdealPositif($dataPositif);
 
@@ -168,7 +168,7 @@ class TopsisController extends Controller
                 $dataNegatif = [
                     'nilai' => $idealNegatif,
                     'kriteria_id' => $value->kriteria_id,
-                    'alternatif_id' => $value->alternatif_id,
+
                 ];
                 $this->topsisServices->simpanIdealNegatif($dataNegatif);
             }

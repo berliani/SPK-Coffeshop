@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sistem Pendukung Keputusan | TOPSIS</title>
+    <title>CafeCompass</title>
 
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/logo.jpg') }}" />
     <link rel="icon" type="image/png" href="{{ asset('img/logoo.png') }}" />
