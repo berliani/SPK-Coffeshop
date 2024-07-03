@@ -12,8 +12,8 @@
     <ul class="flex flex-col pl-0 mb-5">
         <li class="mt-0.5 w-full">
             <a href="{{ route('dashboard') }}" class="{{ Request::is('dashboard') ? 'shadow-soft-xl rounded-lg bg-white font-semibold text-dark' : '' }} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-                <div class="{{ Request::is('dashboard') ? 'bg-gradient-to-tl from-backgroundSecondary to-greenSecondary text-white' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                    <i class="ri-home-smile-fill text-greenPrimary"></i>
+                <div class="{{ Request::is('dashboard') ? 'bg-gradient-to-tl from-backgroundSecondary to-brownSecondary text-white' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                    <i class="ri-home-smile-fill text-brownPrimary"></i>
                 </div>
                 <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Dashboard</span>
             </a>
@@ -21,24 +21,24 @@
 
         <li class="mt-0.5 w-full">
             <a href="{{ route('kriteria') }}" class="{{ Request::is('dashboard/kriteria') ? 'shadow-soft-xl rounded-lg bg-white font-semibold text-dark' : '' }} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-                <div class="{{ Request::is('dashboard/kriteria') ? 'bg-gradient-to-tl from-backgroundSecondary to-greenSecondary text-white' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                    <i class="ri-table-fill text-greenPrimary"></i>
+                <div class="{{ Request::is('dashboard/kriteria') ? 'bg-gradient-to-tl from-backgroundSecondary to-brownSecondary text-white' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                    <i class="ri-table-fill text-brownPrimary"></i>
                 </div>
                 <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Kriteria</span>
             </a>
         </li>
         <li class="mt-0.5 w-full">
             <a href="{{ route('sub_kriteria') }}" class="{{ Request::is('dashboard/sub_kriteria') ? 'shadow-soft-xl rounded-lg bg-white font-semibold text-dark' : '' }} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-                <div class="{{ Request::is('dashboard/sub_kriteria') ? 'bg-gradient-to-tl from-backgroundSecondary to-greenSecondary text-white' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                    <i class="ri-collage-fill text-greenPrimary"></i>
+                <div class="{{ Request::is('dashboard/sub_kriteria') ? 'bg-gradient-to-tl from-backgroundSecondary to-brownSecondary text-white' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                    <i class="ri-collage-fill text-brownPrimary"></i>
                 </div>
                 <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Sub Kriteria</span>
             </a>
         </li>
         <li class="mt-0.5 w-full">
             <a href="{{ route('objek') }}" class="{{ Request::is('dashboard/objek') ? 'shadow-soft-xl rounded-lg bg-white font-semibold text-dark' : '' }} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-                <div class="{{ Request::is('dashboard/objek') ? 'bg-gradient-to-tl from-backgroundSecondary to-greenSecondary text-white' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                    <i class="ri-brackets-fill text-greenPrimary"></i>
+                <div class="{{ Request::is('dashboard/objek') ? 'bg-gradient-to-tl from-backgroundSecondary to-brownSecondary text-white' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                    <i class="ri-brackets-fill text-brownPrimary"></i>
                 </div>
                 <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Isi Alternatif</span>
             </a>
@@ -51,32 +51,32 @@
 
         <li class="mt-0.5 w-full">
             <a href="{{ route('alternatif') }}" class="{{ Request::is('dashboard/alternatif') ? 'shadow-soft-xl rounded-lg bg-white font-semibold text-dark' : '' }} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-                <div class="{{ Request::is('dashboard/alternatif') ? 'bg-gradient-to-tl from-backgroundSecondary to-greenSecondary text-white' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                    <i class="ri-braces-fill text-greenPrimary"></i>
+                <div class="{{ Request::is('dashboard/alternatif') ? 'bg-gradient-to-tl from-backgroundSecondary to-brownSecondary text-white' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                    <i class="ri-braces-fill text-brownPrimary"></i>
                 </div>
                 <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Alternatif</span>
             </a>
         </li>
         <li class="mt-0.5 w-full">
             <a href="{{ route('penilaian') }}" class="{{ Request::is('dashboard/penilaian*') ? 'shadow-soft-xl rounded-lg bg-white font-semibold text-dark' : '' }} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-                <div class="{{ Request::is('dashboard/penilaian*') ? 'bg-gradient-to-tl from-backgroundSecondary to-greenSecondary text-white' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                    <i class="ri-survey-fill text-greenPrimary"></i>
+                <div class="{{ Request::is('dashboard/penilaian*') ? 'bg-gradient-to-tl from-backgroundSecondary to-brownSecondary text-white' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                    <i class="ri-survey-fill text-brownPrimary"></i>
                 </div>
                 <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Penilaian</span>
             </a>
         </li>
         <li class="mt-0.5 w-full">
             <a href="{{ route('perhitungan') }}" class="{{ Request::is('dashboard/perhitungan') ? 'shadow-soft-xl rounded-lg bg-white font-semibold text-dark' : '' }} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-                <div class="{{ Request::is('dashboard/perhitungan') ? 'bg-gradient-to-tl from-backgroundSecondary to-greenSecondary text-white' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                    <i class="ri-calculator-fill text-greenPrimary"></i>
+                <div class="{{ Request::is('dashboard/perhitungan') ? 'bg-gradient-to-tl from-backgroundSecondary to-brownSecondary text-white' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                    <i class="ri-calculator-fill text-brownPrimary"></i>
                 </div>
                 <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Perhitungan</span>
             </a>
         </li>
         <li class="mt-0.5 w-full">
             <a href="{{ route('hasil_akhir') }}" class="{{ Request::is('dashboard/hasil_akhir') ? 'shadow-soft-xl rounded-lg bg-white font-semibold text-dark' : '' }} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-                <div class="{{ Request::is('dashboard/hasil_akhir') ? 'bg-gradient-to-tl from-backgroundSecondary to-greenSecondary text-white' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                    <i class="ri-bar-chart-2-fill text-greenPrimary"></i>
+                <div class="{{ Request::is('dashboard/hasil_akhir') ? 'bg-gradient-to-tl from-backgroundSecondary to-brownSecondary text-white' : '' }} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                    <i class="ri-bar-chart-2-fill text-brownPrimary"></i>
                 </div>
                 <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Perankingan</span>
             </a>

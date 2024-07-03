@@ -6,6 +6,8 @@ use Barryvdh\DomPDF\Facade\PDF;
 use App\Http\Services\TopsisService;
 use App\Http\Services\KriteriaService;
 use App\Http\Services\PenilaianService;
+use Illuminate\Http\Request;
+use App\Models\Alternatif;
 
 class TopsisController extends Controller
 {
@@ -255,4 +257,64 @@ class TopsisController extends Controller
             $hitung = [];
         }
     }
+    public function rekomendasi(Request $request)
+    {
+        // Ambil input kriteria dari user
+        $facility = $request->input('facility');
+        $harga = $request->input('harga');
+        $lokasi = $request->input('lokasi');
+        $menu = $request->input('menu');
+        $jam = $request->input('jam');
+
+        // Ambil data kriteria dari database
+        $dataKriteria = [
+            'facility' => $facility,
+            'harga' => $harga,
+            'lokasi' => $lokasi,
+            'menu' => $menu,
+            'jam' => $jam,
+        ];
+
+        // Cari alternatif yang cocok berdasarkan kriteria dan subkriteria
+        $rekomendasi = $this->filterAlternatifBerdasarkanKriteria($dataKriteria);
+
+        // Tampilkan hasil rekomendasi
+        return view('user.hitung.rekomendasi', ['rekomendasi' => $rekomendasi]);
+    }
+
+    private function filterAlternatifBerdasarkanKriteria($dataKriteria)
+{
+    $alternatif = Alternatif::with('objek')->get(); // Mengambil semua alternatif dengan relasi objek
+
+    // Filter alternatif berdasarkan kriteria
+    $filtered = $alternatif->filter(function($item) use ($dataKriteria) {
+        foreach ($dataKriteria as $kriteria => $subKriteria) {
+            // Mendapatkan penilaian untuk alternatif ini berdasarkan kriteria yang diberikan
+            $penilaian = $item->penilaian()->where('kriteria_id', function($query) use ($kriteria) {
+                $query->select('id')->from('kriteria')->where('kode', $kriteria);
+            })->first();
+
+            // Periksa apakah penilaian ada dan cocok dengan sub kriteria yang dipilih oleh pengguna
+            if (!$penilaian || $penilaian->sub_kriteria->kode !== $subKriteria) {
+                return false; // Jika salah satu kriteria tidak cocok, keluarkan dari hasil
+            }
+        }
+        return true; // Semua kriteria cocok, masukkan ke hasil
+    });
+
+    return $filtered;
+}
+
+
+
+
+// Metode untuk memeriksa apakah alternatif cocok dengan subkriteria tertentu
+public function isMatchingCriteria($alternatif, $kriteria, $subKriteria)
+{
+    // Asumsikan setiap alternatif memiliki relasi dengan subkriteria-nya
+    return $alternatif->subKriterias->contains(function($sub) use ($kriteria, $subKriteria) {
+        return $sub->kriteria->nama == $kriteria && $sub->nama == $subKriteria;
+    });
+}
+
 }

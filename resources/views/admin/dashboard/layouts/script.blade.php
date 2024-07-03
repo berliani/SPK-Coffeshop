@@ -7,8 +7,6 @@
 <script src="{{ asset('js/sidenav-burger.js') }}"></script>
 <script src="{{ asset('js/nav-pills.js') }}"></script>
 
-{{-- ChartJS --}}
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 {{-- SweetAlert2 --}}
 <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>

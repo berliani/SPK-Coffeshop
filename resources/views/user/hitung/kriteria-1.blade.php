@@ -156,21 +156,19 @@
 </style>
 
 <body>
- <!-- Hero Section start -->
- <section class="hero" id="home">
-    <div class="content">
-        <h1>Pilih Kriteria <span>Fasilitas</span> Mu</h1>
-
-        <!-- Dropdown for selecting facility level -->
-        <select id="facility-dropdown">
-            <option value="complete">Sangat Lengkap (7-10 Fasilitas)</option>
-            <option value="medium">Lengkap (4-6 Fasilitas)</option>
-            <option value="basic">Kurang Lengkap (1-3 Fasilitas)</option>
-        </select>
-
-        <!-- Call to Action Button -->
-        <div class="cta"><a href="{{ route('kriteria2') }}">Submit</a></div>
-
+  <!-- Hero Section start -->
+  <form action="{{ route('kriteria2') }}" method="GET">
+    @csrf
+    <section class="hero" id="home">
+        <div class="content">
+            <h1>Pilih Kriteria <span>Fasilitas</span> Mu</h1>
+            <select id="facility-dropdown" name="facility" required>
+                <option value="complete">Sangat Lengkap (7-10 Fasilitas)</option>
+                <option value="medium">Lengkap (4-6 Fasilitas)</option>
+                <option value="basic">Kurang Lengkap (1-3 Fasilitas)</option>
+            </select>
+            <!-- Call to Action Button -->
+            <button type="submit" class="cta">Submit</button>
         <!-- Table for explaining facilities -->
         <table>
             <thead>
@@ -222,6 +220,7 @@
                 </tr>
             </tbody>
         </table>
+    </form>
 
         <!-- Warning Text -->
         <div class="warning-text">

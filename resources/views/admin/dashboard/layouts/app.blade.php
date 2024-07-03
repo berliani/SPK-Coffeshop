@@ -13,7 +13,7 @@
     @include('admin.dashboard.layouts.link')
     @yield('css')
 </head>
-<body class="font-lato antialiased font-normal text-base leading-default bg-backgroundPrimary text-orangePrimary scrollbar-thin scrollbar-thumb-greenPrimary scrollbar-track-greenPrimary/60 scrollbar-thumb-rounded-full hover:scrollbar-thumb-greenPrimary/80 transition-all">
+<body class="font-lato antialiased font-normal text-base leading-default bg-backgroundPrimary text-orangePrimary scrollbar-thin scrollbar-thumb-brownPrimary scrollbar-track-brownPrimary/60 scrollbar-thumb-rounded-full hover:scrollbar-thumb-brownPrimary/80 transition-all">
     @include('admin.dashboard.layouts.sidebar')
 
     <main class="ease-soft-in-out xl:ml-68.5 relative h-screen rounded-xl transition-all duration-200">

@@ -3,6 +3,9 @@
 namespace App\Http\Services;
 
 use App\Http\Repositories\TopsisRepository;
+use App\Models\Kriteria;
+use App\Models\SubKriteria;
+use App\Models\Alternatif;
 
 class TopsisService
 {
@@ -157,4 +160,23 @@ class TopsisService
             $this->topsisRepository->updateHasilTopsis($data);
         }
     }
+
+    public function getSubKriteriaByKodeAndNama($kode, $nama)
+{
+    // Ambil kriteria berdasarkan kode
+    $kriteria = Kriteria::where('kode', $kode)->first();
+
+    if (!$kriteria) {
+        return null;
+    }
+
+    // Ambil subkriteria berdasarkan nama dan id kriteria
+    return SubKriteria::where('nama', $nama)->where('kriteria_id', $kriteria->id)->first();
+}
+public function getAllAlternatif()
+{
+    // Asumsikan model `Alternatif` sudah didefinisikan dan dikonfigurasi dengan benar
+    return Alternatif::all();
+}
+
 }

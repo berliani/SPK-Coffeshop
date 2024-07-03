@@ -10,6 +10,7 @@ use App\Http\Controllers\SubKriteriaController;
 use App\Http\Controllers\TopsisController;
 use App\Http\Controllers\Auth\SocialiteController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RekomendasiController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -47,15 +48,17 @@ Route::get('/auth/google/callback', [SocialiteController::class, 'callback'])->n
 Route::get('/landing-topsis', function () {
     return view('user.hitung.landing-topsis');
 })->name('landing-topsis');
-Route::get('/fasilitas', function () {
+Route::get('/kriteria1', function () {
     return view('user.hitung.kriteria-1');
 })->name('kriteria1');
-Route::get('/harga', function () {
-    return view('user.hitung.kriteria-2');
-})->name('kriteria2');
-Route::get('/lokasi', function () {
-    return view('user.hitung.kriteria-3');
-})->name('kriteria3');
+// Route::get('/harga', function () {
+//     return view('user.hitung.kriteria-2');
+// })->name('kriteria2');
+Route::get('/kriteria-2', [RekomendasiController::class, 'goToKriteria2'])->name('kriteria2');
+Route::post('/rekomendasi', [TopsisController::class, 'rekomendasi']);
+// Route::get('/lokasi', function () {
+//     return view('user.hitung.kriteria-3');
+// })->name('kriteria3');
 
 
 Route::group([
@@ -121,5 +124,7 @@ Route::group([
     Route::post('/hitung_topsis', [TopsisController::class, 'hitungTopsis'])->name('hitung_topsis');
     Route::get('/hasil_akhir', [TopsisController::class, 'hasilAkhir'])->name('hasil_akhir');
 });
+
+
 
 require __DIR__.'/auth.php';

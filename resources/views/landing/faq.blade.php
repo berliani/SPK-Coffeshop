@@ -20,19 +20,19 @@
       </button>
       <div class="pannel">
         <p>
-         Website CafeCompass menerapkan sistem pengambilan keputusan menggunakan metode TOPSIS untuk memberikan rekomendasi coffe shop terbaik menurut kriteria pilihan Anda sendiri.
+         Website CafeCompass menerapkan sistem pengambilan keputusan yang akan memberikan rekomendasi terbaik dari coffeeshop pilihan Anda.
         </p>
       </div>
     </div>
 
     <div class="faq">
       <button class="accordion">
-        Apakah setelah melakukan pengambilan keputusan rekomendasi coffe shop dapat melakukannya lagi?
+        Apa metode yang di gunakan dalam sistem pengambilan keputusan pemilihan coffeeshop ini?
         <i class="fa-solid fa-chevron-down"></i>
       </button>
       <div class="pannel">
         <p>
-         Ya. Bisa
+         Website ini menggunakan metode Technique for Order Preference by Similarity to Ideal Solution (TOPSIS)
         </p>
       </div>
     </div>

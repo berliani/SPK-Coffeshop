@@ -121,51 +121,49 @@
     </style>
 </head>
 <body>
-    <!-- Hero Section start -->
-    <section class="hero" id="home">
-        <div class="content">
+<!-- Hero Section start -->
+<section class="hero" id="home">
+    <div class="content">
+        <form action="/rekomendasi" method="POST">
+            @csrf
             <h1>Pilih Kriteria <span>Harga</span> Mu</h1>
-            <select id="harga-dropdown">
+            <select name="harga" id="harga-dropdown" required>
                 <option value="terjangkau">Terjangkau (Rp 10.000 - Rp 30.000)</option>
                 <option value="standar">Standar Normal (Rp 31.000 - Rp 40.000)</option>
                 <option value="mahal">Mahal (Rp 41.000 - Rp 100.000)</option>
             </select>
-             <!-- Warning Text -->
-             <div class="warning-text">
+            <div class="warning-text">
                 *Harga bisa berubah pada coffee shop.
             </div>
 
             <h1>Pilih Kriteria <span>Lokasi</span> Mu</h1>
-            <select id="lokasi-dropdown">
+            <select name="lokasi" id="lokasi-dropdown" required>
                 <option value="pusat">Pusat Kota (Kota Tegal)</option>
                 <option value="pinggir">Pinggir Kota (Kab. Tegal)</option>
             </select>
 
             <h1>Pilih Kriteria <span>Variasi Menu</span> Mu</h1>
-            <select id="menu-dropdown">
+            <select name="menu" id="menu-dropdown" required>
                 <option value="sangat-lengkap">Sangat Lengkap (51-100 Menu)</option>
                 <option value="lengkap">Lengkap (31-50 Menu)</option>
                 <option value="kurang-lengkap">Kurang Lengkap (10-30 Menu)</option>
             </select>
 
             <h1>Pilih Kriteria <span>Jam Operasional</span> Mu</h1>
-            <select id="jam-dropdown">
+            <select name="jam" id="jam-dropdown" required>
                 <option value="24-jam">24 Jam</option>
                 <option value="pagi-malam">Pagi-Malam</option>
                 <option value="siang-malam">Siang-Malam</option>
             </select>
 
             <!-- Call to Action Button -->
-            <div class="cta">
-                <a href="{{ route('kriteria3') }}">Submit</a>
-            </div>
-
-
+            <button type="submit" class="cta">Submit</button>
+        </form>
         </div>
-    </section>
-    <!-- Hero Section end -->
+</section>
+<!-- Hero Section end -->
 
-    <!-- Feather Icons Init -->
+<!-- Feather Icons Init -->
     <script>
         feather.replace()
     </script>

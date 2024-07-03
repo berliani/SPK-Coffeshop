@@ -1,4 +1,4 @@
-<section class="products" id="products">
+<section class="products" id="coffeshop">
     <h2>Popular <span>Coffe Shop</span></h2>
     <p>Based on rating</p>
 
