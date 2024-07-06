@@ -80,7 +80,7 @@ class TopsisService
         }
     }
 
-    // Ideal Positif
+    // Ideal
     public function getIdealPositif()
     {
         $data = $this->topsisRepository->getIdealPositif();
@@ -120,7 +120,7 @@ class TopsisService
     }
     public function simpanSolusiIdealPositif($solusiIdealPositif)
     {
-        $validate = $this->topsisRepository->getSolusiIdealPositifKriteria($solusiIdealPositif['alternatif_id']);
+        $validate = $this->topsisRepository->getSolusiIdealPositifAlt($solusiIdealPositif['alternatif_id']);
         if ($validate == null) {
             $this->topsisRepository->addSolusiIdealPositif($solusiIdealPositif);
 
@@ -135,7 +135,7 @@ class TopsisService
     }
     public function simpanSolusiIdealNegatif($solusiIdealNegatif)
     {
-        $validate = $this->topsisRepository->getSolusiIdealNegatifKriteria($solusiIdealNegatif['alternatif_id']);
+        $validate = $this->topsisRepository->getSolusiIdealNegatifAlt($solusiIdealNegatif['alternatif_id']);
         if ($validate == null) {
             $this->topsisRepository->addSolusiIdealNegatif($solusiIdealNegatif);
 

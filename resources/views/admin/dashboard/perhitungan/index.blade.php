@@ -223,7 +223,7 @@
                             @foreach ($solusiIdealPositif as $item)
                                 <tr>
                                     <td>{{ $item->nama_objek }}</td>
-                                    <td>{{ round($item->nilai, 3) }}</td>
+                                    <td>{{round ($item->nilai, 3) }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -248,7 +248,7 @@
                             @foreach ($solusiIdealNegatif as $item)
                                 <tr>
                                     <td>{{ $item->nama_objek }}</td>
-                                    <td>{{ round($item->nilai, 3) }}</td>
+                                    <td>{{round ($item->nilai, 3) }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -256,7 +256,7 @@
                 </div>
             </div>
 
-            {{-- Tabel Kedekatan Relatif terhadap Solusi Ideal --}}
+            {{-- Tabel Nilai Preverensi --}}
             <div class="relative flex flex-col min-w-0 mb-5 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                 <div class="flex flex-row items-center justify-between p-6 pb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
                     <h6>Nilai Preferensi <span class="text-greenPrimary">(V)</span></h6>

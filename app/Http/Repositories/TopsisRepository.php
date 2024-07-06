@@ -119,7 +119,7 @@ class TopsisRepository
     {
         $data = DB::table('idealpositif as ip')
             ->join('kriteria as k', 'k.id', 'ip.kriteria_id')
-            ->select('ip.*', 'k.nama as nama_kriteria')
+            ->select('ip.*', 'k.nama as nama_kriteria', 'k.tipe as tipe_kriteria') // Tambahkan 'tipe' dari kriteria
             ->orderBy('ip.id', 'asc')->get();
 
         return $data;
@@ -155,14 +155,14 @@ class TopsisRepository
 
 
          } public function getIdealNegatif()
-            {
-                $data = DB::table('idealnegatif as ip')
-                    ->join('kriteria as k', 'k.id', 'ip.kriteria_id')
-                    ->select('ip.*', 'k.nama as nama_kriteria')
-                    ->orderBy('ip.id', 'asc')->get();
+         {
+             $data = DB::table('idealnegatif as ip')
+                 ->join('kriteria as k', 'k.id', 'ip.kriteria_id')
+                 ->select('ip.*', 'k.nama as nama_kriteria', 'k.tipe as tipe_kriteria') // Tambahkan 'tipe' dari kriteria
+                 ->orderBy('ip.id', 'asc')->get();
 
-                return $data;
-            }
+             return $data;
+         }
 
             public function getIdealNegatifKriteria($kriteria_id)
             {
@@ -203,7 +203,7 @@ class TopsisRepository
 
         return $data;
     }
-    public function getSolusiIdealPositifKriteria($alternatif_id)
+    public function getSolusiIdealPositifAlt($alternatif_id)
     {
         $data = DB::table('solusi_ideal_positif')->where('alternatif_id', $alternatif_id)->first();
         return $data;
@@ -234,7 +234,7 @@ class TopsisRepository
 
         return $data;
     }
-    public function getSolusiIdealNegatifKriteria($alternatif_id)
+    public function getSolusiIdealNegatifAlt($alternatif_id)
     {
         $data = DB::table('solusi_ideal_negatif')->where('alternatif_id', $alternatif_id)->first();
         return $data;
