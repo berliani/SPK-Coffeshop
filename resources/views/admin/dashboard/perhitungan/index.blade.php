@@ -9,13 +9,6 @@
                     @csrf
                     <button type="submit" class="btn btn-active btn-accent text-white hover:bg-accent/95 hover:border-accent/95">Hitung TOPSIS</button>
                 </form>
-                {{-- <form action="{{ 'pdf_topsis' }}" method="post" enctype="multipart/form-data" target="_blank">
-                    @csrf
-                    <button type="submit" class="btn btn-active btn-error text-white hover:bg-error/95 hover:border-error/95">
-                        <i class="ri-file-pdf-line"></i>
-                        Export PDF
-                    </button>
-                </form> --}}
             </div>
 
             {{-- Tabel Bobot Kriteria --}}
@@ -77,7 +70,7 @@
             {{-- Tabel Matriks Keputusan --}}
             <div class="relative flex flex-col min-w-0 mb-5 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                 <div class="flex flex-row items-center justify-between p-6 pb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                    <h6>Matriks Keputusan <span class="text-greenPrimary">(X)</span></h6>
+                    <h6>Matriks Pembagi</h6>
                 </div>
                 <div id='recipients' class="p-8 rounded shadow bg-white">
                     <table id="tabel_data_matriks_keputusan" class="stripe hover" style="width:100%; padding-bottom: 1em;">
@@ -266,7 +259,7 @@
             {{-- Tabel Kedekatan Relatif terhadap Solusi Ideal --}}
             <div class="relative flex flex-col min-w-0 mb-5 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                 <div class="flex flex-row items-center justify-between p-6 pb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                    <h6>Kedekatan Relatif terhadap Solusi Ideal <span class="text-greenPrimary">(Ci)</span></h6>
+                    <h6>Nilai Preferensi <span class="text-greenPrimary">(V)</span></h6>
                 </div>
                 <div id='recipients' class="p-8 rounded shadow bg-white">
                     <table id="tabel_data_hasil" class="stripe hover" style="width:100%; padding-bottom: 1em;">

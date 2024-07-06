@@ -150,7 +150,7 @@ class TopsisRepository
             ->where('kriteria_id', $data['kriteria_id'])
             ->update([
                 'nilai' => $data['nilai'],
-                'updated_at' => Carbon::now(),
+                // 'updated_at' => Carbon::now(),
             ]);
 
 
@@ -189,7 +189,7 @@ class TopsisRepository
                     ->where('kriteria_id', $data['kriteria_id'])
                     ->update([
                         'nilai' => $data['nilai'],
-                        'updated_at' => Carbon::now(),
+                        // 'updated_at' => Carbon::now(),
                     ]);
 
     // Solusi Ideal

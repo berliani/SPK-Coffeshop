@@ -7,7 +7,7 @@
                 <div class="flex flex-row items-center justify-between p-6 pb-0 mb-4 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
                     <h6>Tabel {{ $judul }}</h6>
                     <div>
-                        <label for="add_button" class="cursor-pointer inline-block px-3 py-2 font-bold text-center text-white rounded-lg text-sm ease-soft-in shadow-soft-md bg-gradient-to-br from-greenPrimary to-greenPrimary/80 shadow-soft-md hover:shadow-soft-xs active:opacity-85 hover:scale-102 transition-all">
+                        <label for="add_button" class="cursor-pointer inline-block px-3 py-2 font-bold text-center text-white rounded-lg text-sm ease-soft-in shadow-soft-md bg-gradient-to-br from-brownPrimary to-brownPrimary/80 shadow-soft-md hover:shadow-soft-xs active:opacity-85 hover:scale-102 transition-all">
                             <i class="ri-add-fill"></i>
                             Tambah {{ $judul }}
                         </label>
@@ -31,9 +31,9 @@
                                         <label for="edit_button" class="cursor-pointer" onclick="return edit_button('{{ $item->id }}')">
                                             <i class="ri-pencil-line text-xl"></i>
                                         </label>
-                                        <button onclick="return delete_button('{{ $item->id }}', '{{ $item->nama }}');">
+                                        {{-- <button onclick="return delete_button('{{ $item->id }}', '{{ $item->nama }}');">
                                             <i class="ri-delete-bin-line text-xl"></i>
-                                        </button>
+                                        </button> --}}
                                     </td>
                                 </tr>
                             @endforeach

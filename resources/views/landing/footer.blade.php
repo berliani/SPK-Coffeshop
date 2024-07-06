@@ -11,9 +11,9 @@
 
     <div class="links">
       <a href="#home">Home</a>
-      <a href="#about">About Me</a>
-      <a href="#product">Popular</a>
-      <a href="#contact">Kontak</a>
+      <a href="#coffeshop">Coffee Shop</a>
+      <a href="#popular">Popular</a>
+      <a href="#FAQ">FAQ</a>
     </div>
 
     <div class="credit">

@@ -6,7 +6,7 @@
             <div class="relative flex flex-col min-w-0 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                 <div class="flex flex-row items-center justify-between p-6 pb-0 mb-4 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
                     <h6>Tabel {{ $judul }}</h6>
-                    <label for="add_button" class="cursor-pointer inline-block px-3 py-2 font-bold text-center text-white rounded-lg text-sm ease-soft-in shadow-soft-md bg-gradient-to-br from-greenPrimary to-greenPrimary/80 shadow-soft-md hover:shadow-soft-xs active:opacity-85 hover:scale-102 transition-all">
+                    <label for="add_button" class="cursor-pointer inline-block px-3 py-2 font-bold text-center text-white rounded-lg text-sm ease-soft-in shadow-soft-md bg-gradient-to-br from-brownPrimary to-brownPrimary/80 shadow-soft-md hover:shadow-soft-xs active:opacity-85 hover:scale-102 transition-all">
                         <i class="ri-add-fill"></i>
                         Tambah {{ $judul }}
                     </label>
@@ -16,18 +16,18 @@
                         <thead>
                             <tr>
                                 <th>Nama</th>
-                                <th>Aksi</th>
+                                {{-- <th>Aksi</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($data as $item)
                                 <tr>
                                     <td>{{ $item->objek->nama }}</td>
-                                    <td class="flex gap-x-3">
+                                    {{-- <td class="flex gap-x-3">
                                         <button onclick="return delete_button('{{ $item->id }}', '{{ $item->objek->nama }}');">
                                             <i class="ri-delete-bin-line text-xl"></i>
                                         </button>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             @endforeach
                         </tbody>
