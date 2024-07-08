@@ -11,7 +11,7 @@
 
     <div class="links">
       <a href="#home">Home</a>
-      <a href="#coffeshop">Coffee Shop</a>
+      <a href="#coffeshop">How to</a>
       <a href="#popular">Popular</a>
       <a href="#FAQ">FAQ</a>
     </div>
