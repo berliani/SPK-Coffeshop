@@ -28,9 +28,9 @@ class CheckUserRole
         if ($user->role == 'admin') {
             return redirect()->route('admin.dashboard.index');
         } elseif ($user->role == 'user') {
-            return redirect()->route('user.dashboard');
+            return redirect()->route('user.dashboard'); // Assuming 'user.dashboard' is defined
         } else {
-            return redirect('home'); // Redirect to home or any other page
+            return redirect()->route('landing'); // Redirect to landing page or adjust as needed
         }
 
         return $next($request);

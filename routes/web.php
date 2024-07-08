@@ -25,16 +25,27 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('landing/index');
+    return view('landing.index');
 });
 
-// Redirect users based on their role
-Route::get('/landing', function () {
-    // Middleware check.role akan menghandle redirect berdasarkan peran
-})->middleware(['auth', 'verified', 'check.role'])->name('dashboard');
+Route::middleware(['auth', 'verified', 'check.role'])->group(function () {
+    Route::get('/dashboard', function () {
+        // Dashboard logic
+    })->name('dashboard');
 
-// Profile routes
-Route::middleware('auth')->group(function () {
+    Route::middleware('check.role:admin')->group(function () {
+        Route::get('/admin/dashboard', function () {
+            // Admin dashboard logic
+        })->name('admin.dashboard.index');
+    });
+
+    Route::middleware('check.role:user')->group(function () {
+        Route::get('/user/dashboard', function () {
+            // User dashboard logic, untuk sekarang ke admin dulu
+        })->name('admin.dashboard.index');
+    });
+
+    // Profile routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -43,34 +54,26 @@ Route::middleware('auth')->group(function () {
 Route::get('/auth/google', [SocialiteController::class, 'redirect'])->name('auth.google');
 Route::get('/auth/google/callback', [SocialiteController::class, 'callback'])->name('auth.google.callback');
 
-//user
-// Route untuk halaman landing-topsis
+// Additional user routes
 Route::get('/landing-topsis', function () {
     return view('user.hitung.landing-topsis');
 })->name('landing-topsis');
+
 Route::get('/kriteria1', function () {
     return view('user.hitung.kriteria-1');
 })->name('kriteria1');
-// Route::get('/harga', function () {
-//     return view('user.hitung.kriteria-2');
-// })->name('kriteria2');
+
 Route::get('/kriteria-2', [RekomendasiController::class, 'goToKriteria2'])->name('kriteria2');
-Route::post('/rekomendasi', [TopsisController::class, 'rekomendasi']);
+Route::post('/rekomendasi', [TopsisController::class, 'rekomendasi'])->name('rekomendasi');
+
 // Route::get('/lokasi', function () {
 //     return view('user.hitung.kriteria-3');
 // })->name('kriteria3');
 
-
-Route::group([
-    "middleware" => ['auth', 'verified'],
-    "prefix" => "dashboard"
-
-], function() {
+Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'dashboard'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::group([
-        'prefix' => 'kriteria'
-    ], function () {
+    Route::group(['prefix' => 'kriteria'], function () {
         Route::get('/', [KriteriaController::class, 'index'])->name('kriteria');
         Route::post('/simpan', [KriteriaController::class, 'simpan'])->name('kriteria.simpan');
         Route::get('/ubah', [KriteriaController::class, 'ubah'])->name('kriteria.ubah');
@@ -78,9 +81,7 @@ Route::group([
         Route::post('/hapus', [KriteriaController::class, 'hapus'])->name('kriteria.hapus');
     });
 
-    Route::group([
-        'prefix' => 'sub_kriteria'
-    ], function () {
+    Route::group(['prefix' => 'sub_kriteria'], function () {
         Route::get('/', [SubKriteriaController::class, 'index'])->name('sub_kriteria');
         Route::post('/simpan', [SubKriteriaController::class, 'simpan'])->name('sub_kriteria.simpan');
         Route::get('/ubah', [SubKriteriaController::class, 'ubah'])->name('sub_kriteria.ubah');
@@ -88,9 +89,7 @@ Route::group([
         Route::post('/hapus', [SubKriteriaController::class, 'hapus'])->name('sub_kriteria.hapus');
     });
 
-    Route::group([
-        'prefix' => 'objek'
-    ], function () {
+    Route::group(['prefix' => 'objek'], function () {
         Route::get('/', [ObjekController::class, 'index'])->name('objek');
         Route::post('/simpan', [ObjekController::class, 'simpan'])->name('objek.simpan');
         Route::get('/ubah', [ObjekController::class, 'ubah'])->name('objek.ubah');
@@ -99,32 +98,23 @@ Route::group([
         Route::post('/import', [ObjekController::class, 'import'])->name('objek.import');
     });
 
-    Route::group([
-        'prefix' => 'alternatif'
-    ], function () {
+    Route::group(['prefix' => 'alternatif'], function () {
         Route::get('/', [AlternatifController::class, 'index'])->name('alternatif');
         Route::post('/simpan', [AlternatifController::class, 'simpan'])->name('alternatif.simpan');
         Route::post('/hapus', [AlternatifController::class, 'hapus'])->name('alternatif.hapus');
     });
 
-    Route::group([
-        'prefix' => 'penilaian'
-    ], function () {
+    Route::group(['prefix' => 'penilaian'], function () {
         Route::get('/', [PenilaianController::class, 'index'])->name('penilaian');
         Route::post('/simpan', [PenilaianController::class, 'simpan'])->name('penilaian.simpan');
         Route::get('/ubah/{alternatif_id}', [PenilaianController::class, 'ubah'])->name('penilaian.ubah');
         Route::post('/ubah/{alternatif_id}', [PenilaianController::class, 'perbarui'])->name('penilaian.perbarui');
         Route::post('/hapus', [PenilaianController::class, 'hapus'])->name('penilaian.hapus');
-
     });
 
     Route::get('/perhitungan', [TopsisController::class, 'index'])->name('perhitungan');
-    Route::post('/pdf_topsis', [TopsisController::class, 'pdf_topsis'])->name('pdf_topsis');
-    Route::post('/pdf_hasil', [TopsisController::class, 'pdf_hasil'])->name('pdf_hasil');
     Route::post('/hitung_topsis', [TopsisController::class, 'hitungTopsis'])->name('hitung_topsis');
     Route::get('/hasil_akhir', [TopsisController::class, 'hasilAkhir'])->name('hasil_akhir');
 });
-
-
 
 require __DIR__.'/auth.php';

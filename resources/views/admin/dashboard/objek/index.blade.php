@@ -18,7 +18,7 @@
                         <thead>
                             <tr>
                                 <th>Nama</th>
-                                <th>Alamat</th> <!-- Tambahkan kolom Alamat -->
+                                <th>Alamat</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -26,14 +26,14 @@
                             @foreach ($data as $item)
                                 <tr>
                                     <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->alamat }}</td> <!-- Tampilkan data alamat -->
+                                    <td>{{ $item->alamat }}</td>
                                     <td class="flex gap-x-3">
                                         <label for="edit_button" class="cursor-pointer" onclick="return edit_button('{{ $item->id }}')">
                                             <i class="ri-pencil-line text-xl"></i>
                                         </label>
-                                        {{-- <button onclick="return delete_button('{{ $item->id }}', '{{ $item->nama }}');">
+                                        <button onclick="return delete_button('{{ $item->id }}', '{{ $item->nama }}');">
                                             <i class="ri-delete-bin-line text-xl"></i>
-                                        </button> --}}
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach

@@ -1,6 +1,5 @@
 <section class="products" id="coffeshop">
     <h2>Popular <span>Coffe Shop</span></h2>
-    <p>Based on rating</p>
 
     <div class="row">
       <div class="product-card">

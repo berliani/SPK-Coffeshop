@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 class SocialiteController extends Controller
 
-#menggunakan $provider agar dinamik, tidak perlu satu satu google, fb, dll
 {
     public function redirect()
     {
@@ -38,12 +37,12 @@ class SocialiteController extends Controller
 
             Auth::login($user);
 
-            return redirect('/landing'); //redirect to dashboard
+            return redirect('/'); //redirect to dashboard
         }
 
         Auth::login($registeredUser); //login the existing user
 
-        return redirect('/landing');
+        return redirect('/');
 
 }
 }
