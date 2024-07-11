@@ -39,7 +39,7 @@ Route::middleware(['auth', 'verified', 'check.role'])->group(function () {
         })->name('admin.dashboard.index');
     });
 
-    Route::middleware('check.role:user')->group(function () {
+    Route::middleware('check.role:pengguna')->group(function () {
         Route::get('/user/dashboard', function () {
             // User dashboard logic, untuk sekarang ke admin dulu
         })->name('admin.dashboard.index');
