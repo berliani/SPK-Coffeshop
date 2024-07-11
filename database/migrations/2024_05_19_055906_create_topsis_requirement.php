@@ -33,17 +33,15 @@ return new class extends Migration
             $table->foreignId("kriteria_id")->constrained("kriteria", "id");
             $table->timestamps();
         });
-        Schema::create('ideal_positif', function (Blueprint $table) {
+        Schema::create('idealpositif', function (Blueprint $table) {
             $table->id();
             $table->double("nilai");
-            $table->foreignId("alternatif_id")->constrained("alternatif", "id");
             $table->foreignId("kriteria_id")->constrained("kriteria", "id");
             $table->timestamps();
         });
-        Schema::create('ideal_negatif', function (Blueprint $table) {
+        Schema::create('idealnegatif', function (Blueprint $table) {
             $table->id();
             $table->double("nilai");
-            $table->foreignId("alternatif_id")->constrained("alternatif", "id");
             $table->foreignId("kriteria_id")->constrained("kriteria", "id");
             $table->timestamps();
         });
@@ -77,8 +75,8 @@ return new class extends Migration
         Schema::dropIfExists('matriks_keputusan');
         Schema::dropIfExists('matriks_normalisasi_keputusan');
         Schema::dropIfExists('matriks_normalisasi_bobot_keputusan');
-        Schema::dropIfExists('ideal_positif');
-        Schema::dropIfExists('ideal_negatif');
+        Schema::dropIfExists('idealpositif');
+        Schema::dropIfExists('idealnegatif');
         Schema::dropIfExists('solusi_ideal_positif');
         Schema::dropIfExists('solusi_ideal_negatif');
         Schema::dropIfExists('hasil_solusi_topsis');

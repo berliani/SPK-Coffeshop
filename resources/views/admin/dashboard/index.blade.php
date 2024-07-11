@@ -17,8 +17,8 @@
                             </div>
                         </div>
                         <div class="px-3 text-right basis-1/3">
-                            <div class="flex justify-center items-center w-12 h-12 rounded-lg bg-gradient-to-tl from-backgroundSecondary to-greenSecondary">
-                                <i class="ri-table-fill text-2xl text-greenPrimary"></i>
+                            <div class="flex justify-center items-center w-12 h-12 rounded-lg bg-gradient-to-tl from-backgroundSecondary to-brownSecondary">
+                                <i class="ri-table-fill text-2xl text-brownPrimary"></i>
                             </div>
                         </div>
                     </div>
@@ -40,8 +40,8 @@
                             </div>
                         </div>
                         <div class="px-3 text-right basis-1/3">
-                            <div class="flex justify-center items-center w-12 h-12 rounded-lg bg-gradient-to-tl from-backgroundSecondary to-greenSecondary">
-                                <i class="ri-collage-fill text-2xl text-greenPrimary"></i>
+                            <div class="flex justify-center items-center w-12 h-12 rounded-lg bg-gradient-to-tl from-backgroundSecondary to-brownSecondary">
+                                <i class="ri-collage-fill text-2xl text-brownPrimary"></i>
                             </div>
                         </div>
                     </div>
@@ -63,8 +63,8 @@
                             </div>
                         </div>
                         <div class="px-3 text-right basis-1/3">
-                            <div class="flex justify-center items-center w-12 h-12 rounded-lg bg-gradient-to-tl from-backgroundSecondary to-greenSecondary">
-                                <i class="ri-braces-fill text-2xl text-greenPrimary"></i>
+                            <div class="flex justify-center items-center w-12 h-12 rounded-lg bg-gradient-to-tl from-backgroundSecondary to-brownSecondary">
+                                <i class="ri-braces-fill text-2xl text-brownPrimary"></i>
                             </div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                             </div>
                         </div>
                         <div class="max-w-full px-3 mt-12 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
-                            <div class="h-full bg-gradient-to-tl from-backgroundSecondary to-greenSecondary rounded-xl">
+                            <div class="h-full bg-gradient-to-tl from-backgroundSecondary to-brownSecondary rounded-xl">
                                 <img src="{{ asset('img/shapes/waves-white.svg') }}" class="absolute top-0 hidden w-1/2 h-full lg:block" alt="waves" />
                                 <div class="relative flex items-center justify-center h-full">
                                     <img class="relative z-20 w-full pt-6" src="{{ asset('img/logoo.png') }}" alt="logo" />
@@ -122,7 +122,7 @@
                             </div>
                         </div>
                         <div class="max-w-full px-3 mt-12 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
-                            <div class="h-full bg-gradient-to-tl from-backgroundSecondary to-greenSecondary rounded-xl">
+                            <div class="h-full bg-gradient-to-tl from-backgroundSecondary to-brownSecondary rounded-xl">
                                 <img src="{{ asset('img/shapes/waves-white.svg') }}" class="absolute top-0 hidden w-1/2 h-full lg:block" alt="waves" />
                                 <div class="relative flex items-center justify-center h-full">
                                     <img class="relative z-20 w-full pt-6" src="{{ asset('img/logoo.png') }}" alt="logo" />
